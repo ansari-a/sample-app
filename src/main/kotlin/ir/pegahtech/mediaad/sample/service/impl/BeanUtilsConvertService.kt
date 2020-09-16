@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service
 
 @Service
 class BeanUtilsConvertService: ConvertService {
-    override fun convert(sourceDTO: SourceDTO): DestinationDTO {
+    override fun convert(sourceDTO: SourceDTO?): DestinationDTO? {
         val destinationDTO = DestinationDTO()
         BeanUtils.copyProperties(destinationDTO, sourceDTO)
         return destinationDTO

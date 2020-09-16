@@ -4,5 +4,5 @@ import ir.pegahtech.mediaad.sample.dto.DestinationDTO
 import ir.pegahtech.mediaad.sample.dto.SourceDTO
 
 interface ConvertService {
-    fun convert(sourceDTO: SourceDTO): DestinationDTO
+    fun convert(sourceDTO: SourceDTO?): DestinationDTO?
 }

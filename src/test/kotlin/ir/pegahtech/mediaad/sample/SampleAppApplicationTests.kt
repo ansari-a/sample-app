@@ -18,7 +18,10 @@ class SampleAppApplicationTests{
 	@Autowired
 	private var beanUtilsConvertService: ConvertService? = null
 
-	@Test
+    @Autowired
+    private var mapStructConvertService: ConvertService? = null
+
+    @Test
 	fun contextLoads() {
 	}
 
@@ -31,7 +34,16 @@ class SampleAppApplicationTests{
 		assertEquals(result, destinationDTO)
 	}
 
-	private fun initSourceDto(): SourceDTO {
+    @Test
+    fun testMapStruct() {
+        println("----- testMapStruct -----")
+        val sourceDTO = initSourceDto()
+        val destinationDTO = initDestinationDto()
+        val result = mapStructConvertService!!.convert(sourceDTO)
+        assertEquals(result, destinationDTO)
+    }
+
+    private fun initSourceDto(): SourceDTO {
 		val sourceDTO = SourceDTO()
 		sourceDTO.id = 1
 		sourceDTO.name = "Test"
